@@ -1,0 +1,42 @@
+@font-face {
+  font-family: '思源雅黑';
+  src: url('../font/SourceHanSerifCN-Regular.ttf');
+}
+.HomePage-container {
+  height: 100%;
+  width: 100%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: '思源雅黑', 'Microsoft YaHei', sans-serif;
+}
+.home-page-upper {
+  padding: 20px;
+  height: 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 20px;
+}
+.home-page-lower {
+  height: 90%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+}
+.home-page-lower-text {
+  font-size: 18px;
+  color: #000000;
+  text-align: center;
+}
+.home-page-lower-text-style {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  color: #000000;
+}

@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-size: 14px;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 5px;
+  /* 垂直滚动条的宽度 */
+  height: 5px;
+  /* 水平滚动条的高度 */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  /* 轨道背景设置为透明 */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #dadada;
+  /* 滑块颜色 */
+  border-radius: 8px;
+  /* 滑块圆角 */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #bdbdbd;
+  /* 滑块悬停时的颜色 */
+}
