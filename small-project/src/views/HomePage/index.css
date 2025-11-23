@@ -3,40 +3,341 @@
   src: url('../font/SourceHanSerifCN-Regular.ttf');
 }
 .HomePage-container {
-  height: 100%;
+  min-height: 100vh;
   width: 100%;
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: '思源雅黑', 'Microsoft YaHei', sans-serif;
+  padding: 0;
+  margin: 0;
 }
-.home-page-upper {
-  padding: 20px;
-  height: 40px;
+.HomePage-banner {
   width: 100%;
+  padding: 40px 20px;
+  background: #f5f7fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 32px;
+}
+.banner-content {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  font-size: 20px;
+  gap: 24px;
 }
-.home-page-lower {
-  height: 90%;
-  width: 100%;
+.logo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 2px solid #1890ff;
+  object-fit: cover;
+}
+.banner-text {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.banner-title {
+  margin: 0;
+  color: #1890ff;
+  font-size: 28px;
+  font-weight: bold;
+}
+.banner-subtitle {
+  font-size: 16px;
+  color: #666;
+  font-weight: 500;
+}
+.banner-tag {
+  background-color: #1890ff;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-top: 8px;
+}
+.card {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 32px;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  background-color: white;
+}
+.section-title {
+  color: #1890ff;
+  font-size: 24px;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+.divider {
+  height: 1px;
+  background-color: #f0f0f0;
+  margin: 16px 0;
+}
+.grid-container {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.grid-item {
+  flex: 1;
+  min-width: 300px;
+}
+.sub-card {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+  background-color: white;
+}
+.sub-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+.card-image {
+  height: 300px;
+  overflow: hidden;
+}
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card-meta {
+  padding: 16px;
+}
+.card-title {
+  font-size: 18px;
+  margin: 0 0 8px 0;
+  color: #333;
+}
+.card-description {
+  margin: 0;
+  color: #666;
+  line-height: 1.6;
+}
+.timeline {
+  position: relative;
+  padding-left: 60px;
+  margin-top: 16px;
+}
+.timeline-item {
+  position: relative;
+  justify-content: space-around;
+  display: flex;
+  margin-bottom: 24px;
+}
+.timeline-year {
+  position: absolute;
+  color: #1890ff;
+  font-weight: bold;
+  font-size: 16px;
+  min-width: 50px;
+}
+.timeline-dot {
+  position: absolute;
+  left: -60px;
+  top: 4px;
+  width: 20px;
+  height: 20px;
+  background-color: #1890ff;
+  border-radius: 50%;
+  display: flex;
   align-items: center;
   justify-content: center;
-  overflow-y: auto;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
 }
-.home-page-lower-text {
+.timeline-content {
+  color: #666;
+  line-height: 1.6;
+  padding-top: 25px;
+}
+.activity-card {
+  background: #fafafa;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+.activity-title {
   font-size: 18px;
-  color: #000000;
-  text-align: center;
+  margin: 0 0 12px 0;
+  color: #333;
+  display: flex;
+  align-items: center;
 }
-.home-page-lower-text-style {
+.activity-icon {
+  margin-right: 8px;
+  font-size: 20px;
+}
+.activity-items {
   display: flex;
   flex-direction: column;
-  gap: 0.5em;
-  color: #000000;
+  gap: 8px;
+}
+.activity-item {
+  display: flex;
+  align-items: flex-start;
+}
+.activity-bullet {
+  background-color: #1890ff;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 8px;
+  margin-top: 6px;
+  flex-shrink: 0;
+}
+.activity-text {
+  color: #666;
+  margin: 0;
+}
+.department-card {
+  background: #fafafa;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.department-title {
+  font-size: 18px;
+  margin: 0 0 8px 0;
+  color: #333;
+}
+.department-members {
+  background-color: #e6f7ff;
+  color: #1890ff;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+}
+.department-duty {
+  color: #666;
+  margin: 8px 0 0 0;
+  line-height: 1.6;
+  flex: 1;
+}
+.join-us {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 32px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+.join-image {
+  height: 300px;
+  overflow: hidden;
+}
+.join-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.join-content {
+  padding: 24px;
+}
+.join-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 48px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+.join-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.join-subtitle {
+  font-size: 20px;
+  margin: 0;
+  color: #333;
+}
+.join-text {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  margin: 0;
+}
+.join-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 8px;
+}
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.contact-tag {
+  background-color: #1890ff;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+.contact-value {
+  font-weight: 500;
+  color: #333;
+  margin: 0;
+}
+.contact-link {
+  color: #1890ff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.contact-link:hover {
+  color: #40a9ff;
+  text-decoration: underline;
+}
+.footer {
+  width: 100%;
+  padding: 20px 0;
+  background: #f5f7fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.footer-text {
+  color: #999;
+  font-size: 14px;
+  margin: 0;
+}
+@media (max-width: 768px) {
+  .banner-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .grid-container {
+    flex-direction: column;
+  }
+  .join-section {
+    gap: 24px;
+  }
+  .timeline {
+    padding-left: 50px;
+  }
+  .timeline-year {
+    left: -50px;
+    min-width: 40px;
+    font-size: 14px;
+  }
+  .timeline-dot {
+    left: -50px;
+    width: 16px;
+    height: 16px;
+    font-size: 10px;
+  }
 }

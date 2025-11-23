@@ -1,0 +1,131 @@
+.card-item {
+  width: 100%;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  margin: 16px 0;
+  transition: box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+/* 鼠标悬停动画 */
+.card-item:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+/* 顶部封面图区域 */
+.card-top {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.card-top img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+/* 类型标签，如“独奏” */
+.card-type-tag {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #1890ff;
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+/* 标题与简介区域 */
+.card-middle {
+  padding: 16px;
+}
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 8px 0;
+  line-height: 1.4;
+}
+.card-description {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+  line-height: 1.6;
+}
+/* 内容展示区域（示例放第二张图，可根据实际调整） */
+.card-content {
+  width: 100%;
+  overflow: hidden;
+}
+.card-content img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+/* 底部发布者、头像、时间区域 */
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-top: 1px solid #f2f2f2;
+}
+/* 发布者信息（头像 + 名称） */
+.publisher-info {
+  display: flex;
+  align-items: center;
+}
+/* 圆形头像 */
+.publisher-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  margin-right: 8px;
+  object-fit: cover;
+}
+/* 发布者名称 */
+.publisher-name {
+  font-size: 13px;
+  color: #555;
+}
+/* 发布时间 */
+.card-time {
+  font-size: 13px;
+  color: #999;
+}
+/* 添加收藏按钮相关样式 */
+.card-title-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.card-title {
+  flex: 1;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 8px;
+}
+.favorite-button {
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+.favorite-button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.favorite-button:focus {
+  outline: none;
+}

@@ -1,0 +1,169 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.harmonica-bible-container {
+  min-height: 100vh;
+  background-color: #fafafa;
+}
+.harmonica-bible-container .bible-header {
+  background: linear-gradient(90deg, #1890ff 0%, #40a9ff 100%);
+  padding: 0 24px;
+  height: 64px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.harmonica-bible-container .bible-header .header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+.harmonica-bible-container .bible-header .header-title {
+  color: #fff;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+.harmonica-bible-container .bible-header .header-actions {
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 576px) {
+  .harmonica-bible-container .bible-header .header-actions .ant-btn-text {
+    display: none;
+  }
+}
+.harmonica-bible-container .bible-sider {
+  background-color: #fff;
+  border-right: 1px solid #e8e8e8;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+}
+.harmonica-bible-container .bible-sider .sider-menu {
+  border-right: none;
+  padding-top: 20px;
+}
+.harmonica-bible-container .bible-sider .sider-menu .chapter-item {
+  height: 60px;
+  line-height: 60px;
+  font-size: 16px;
+  transition: all 0.3s;
+}
+.harmonica-bible-container .bible-sider .sider-menu .chapter-item:hover {
+  background-color: #e6f7ff;
+}
+.harmonica-bible-container .bible-sider .sider-menu .chapter-item.ant-menu-item-selected {
+  background-color: #e6f7ff;
+  color: #1890ff;
+  border-left: 3px solid #1890ff;
+}
+.harmonica-bible-container .bible-content {
+  padding: 24px;
+  overflow: auto;
+  height: calc(100vh - 64px);
+}
+.harmonica-bible-container .bible-content .content-inner {
+  margin: 0 auto;
+}
+.harmonica-bible-container .bible-content .chapter-content {
+  background: #fff;
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 32px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  display: none;
+}
+.harmonica-bible-container .bible-content .chapter-content.active {
+  display: block;
+  animation: fadeIn 0.5s ease;
+}
+.harmonica-bible-container .bible-content .chapter-content .chapter-title {
+  margin-bottom: 16px;
+  color: #1890ff;
+  display: flex;
+  align-items: center;
+}
+.harmonica-bible-container .bible-content .chapter-content .section-collapse {
+  margin-top: 16px;
+}
+.harmonica-bible-container .bible-content .chapter-content .section-header {
+  margin: 0;
+  color: #333;
+  transition: color 0.3s;
+}
+.harmonica-bible-container .bible-content .chapter-content .section-header:hover {
+  color: #1890ff;
+}
+.harmonica-bible-container .bible-content .chapter-content .section-panel {
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 8px;
+}
+.harmonica-bible-container .bible-content .chapter-content .section-panel:last-child {
+  border-bottom: none;
+}
+.harmonica-bible-container .bible-content .chapter-content .section-content {
+  padding: 16px 0 8px 24px;
+  color: #666;
+  line-height: 1.8;
+}
+.harmonica-bible-container .bible-content .chapter-content .section-content ul {
+  padding-left: 20px;
+  margin: 16px 0;
+}
+.harmonica-bible-container .bible-content .chapter-content .section-content li {
+  margin-bottom: 8px;
+}
+.harmonica-bible-container .bible-content .chapter-content .exercise-actions {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px dashed #e8e8e8;
+}
+.harmonica-bible-container .custom-card {
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  padding: 16px;
+  background: #fff;
+  transition: all 0.3s;
+  margin-top: 8px;
+}
+.harmonica-bible-container .custom-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border-color: #e6f7ff;
+}
+.harmonica-bible-container .back-to-top {
+  background: #fff !important;
+  border: 1px solid #e8e8e8;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  right: 30px;
+  bottom: 30px;
+}
+.harmonica-bible-container .back-to-top:hover {
+  background: #f5f5f5 !important;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 768px) {
+  .harmonica-bible-container .bible-sider {
+    display: none;
+  }
+  .harmonica-bible-container .bible-content {
+    padding: 16px;
+  }
+  .harmonica-bible-container .bible-content .chapter-content {
+    padding: 16px;
+  }
+  .harmonica-bible-container .bible-content .section-content {
+    padding-left: 0;
+  }
+}

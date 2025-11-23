@@ -7,7 +7,223 @@
   width: 100%;
   background-color: #ffffff;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  overflow: hidden;
+  position: relative;
   font-family: '思源雅黑';
+  flex-direction: row;
+  overflow: auto;
+}
+.opern-left {
+  height: 100%;
+  width: 100%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  /* 移除居中对齐，避免内容偏移 */
+}
+.opern-left-top {
+  /* 调整高度为自适应，避免内容溢出 */
+  min-height: 100px;
+  width: 100%;
+  background-color: #ffffff;
+  display: flex;
+  padding: 0 20px;
+  align-items: center;
+  justify-content: space-between;
+  /* 改为两端对齐，更紧凑 */
+  margin-bottom: 20px;
+  /* 与下方筛选区增加间距 */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.opern-left-top-search {
+  height: 100%;
+  width: calc(100% - 120px);
+  /* 预留图标区域宽度 */
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  /* 垂直居中 */
+  padding: 15px 0;
+}
+.opern-left-top-search-input {
+  height: 50px;
+  width: 100%;
+  /* 占满搜索区宽度 */
+  border-radius: 20px;
+  font-size: 18px;
+  padding-left: 20px;
+  /* 避免文字与图标重叠 */
+}
+.opern-left-top-icon {
+  height: 100%;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 15px;
+}
+.opern-left-bottom {
+  /* 改为flex-grow填充剩余空间，避免固定高度导致溢出 */
+  flex-grow: 1;
+  width: 100%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  /* 防止内部内容溢出容器 */
+}
+.opern-left-bottom-class {
+  /* 废弃原有筛选区样式，由三级筛选区替代 */
+  display: none;
+}
+.opern-left-bottom-context {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-y: auto;
+  flex-grow: 1;
+  /* 填充剩余空间 */
+}
+/* 三级筛选区域样式 */
+.filter-levels {
+  padding: 16px 20px;
+  background: #fff;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+/* 筛选组容器（不同级别分行） */
+.filter-group {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  /* 标签与选项垂直居中 */
+}
+.filter-group:last-child {
+  margin-bottom: 0;
+}
+/* 筛选标签（如“口琴类型：”） */
+.filter-group-label {
+  width: 100px;
+  font-weight: 500;
+  color: #333;
+  text-align: right;
+  margin-right: 12px;
+  flex-shrink: 0;
+  /* 标签宽度固定，不收缩 */
+}
+/* 筛选选项行（同一级别横向排列） */
+.filter-options-row {
+  display: flex;
+  flex-wrap: wrap;
+  /* 适配小屏，自动换行 */
+  gap: 12px;
+  /* 选项之间的间距 */
+  flex-grow: 1;
+  /* 占满剩余宽度 */
+}
+/* 单个筛选选项 */
+.filter-item {
+  padding: 6px 16px;
+  border-radius: 16px;
+  background: #f5f5f5;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  /* 用于后续可能的装饰 */
+}
+.filter-item:hover {
+  background: #e8f4ff;
+  color: #1890ff;
+}
+.filter-item-active {
+  background: #1890ff;
+  color: #fff;
+}
+.filter-item-active:hover {
+  background: #096dd9;
+}
+/* 已选筛选条件栏 */
+.active-filters-bar {
+  padding: 12px 16px;
+  background: #f0f7ff;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+.active-filters-bar .filters-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  color: #1890ff;
+  font-size: 14px;
+}
+.active-filters-bar .filters-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+/* 空状态样式 */
+.empty-state {
+  text-align: center;
+  padding: 48px 0;
+  color: #999;
+  background: #fff;
+  border-radius: 8px;
+}
+/* 响应式适配 */
+@media (max-width: 1200px) {
+  .opern-left {
+    width: 65%;
+  }
+  .opern-right {
+    width: 35%;
+  }
+}
+@media (max-width: 992px) {
+  .opern-left {
+    width: 100%;
+  }
+  .opern-right {
+    display: none;
+    /* 中等屏幕隐藏右侧 */
+  }
+}
+@media (max-width: 576px) {
+  .opern-left {
+    padding: 10px;
+  }
+  .opern-left-top {
+    flex-direction: column;
+    padding: 10px;
+    min-height: auto;
+  }
+  .opern-left-top-search {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .opern-left-top-icon {
+    width: 100%;
+    justify-content: center;
+  }
+  /* 小屏筛选区适配 */
+  .filter-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .filter-group .filter-group-label {
+    text-align: left;
+    margin-bottom: 8px;
+    width: 100%;
+    /* 标签占满宽度 */
+  }
+  .filter-item {
+    padding: 4px 12px;
+    font-size: 14px;
+  }
 }

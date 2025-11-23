@@ -2,13 +2,29 @@ import type { FC } from 'react';
 import './index.less';
 import { Flex, Menu } from 'antd';
 import type { MenuProps } from 'antd';
-import{Link} from 'react-router-dom';
+import{Link,useLocation} from 'react-router-dom';
 
 type SystemInfoProps = {
   children?: React.ReactNode;  // Made children optional and used full namespace
 };
 
 const SystemInfo: FC<SystemInfoProps> = ({ children }) => {
+  const location = useLocation();
+  const currentPath=location.pathname;
+
+  const getSelectedKey = () => {
+    switch (currentPath){
+      case '/technology':
+        return '2';
+      case '/opern':
+        return '2';
+      case '/':
+        return '1';
+      default:
+        return '1';
+    }
+  };
+  
   const rightMenuItems: MenuProps['items'] = [
     {
       label:<Link to="/">首页</Link>,
@@ -19,83 +35,28 @@ const SystemInfo: FC<SystemInfoProps> = ({ children }) => {
       key: '2',
       children:[
         {
-          label:'基本乐理知识', 
+          label:<Link to="/technology">星一口琴宝典</Link>, 
           key:'10',
           style:{
             fontFamily: '思源雅黑' 
           }
         },
         {
-          label:'演奏规范与技巧',
+          label:<Link to="/opern">曲谱库</Link>,
           key:'11',
           style:{
             fontFamily: '思源雅黑' 
           }
         },
-        {
-          label:<Link to="/opern">曲谱</Link>,
-          key:'12',
-          style:{
-            fontFamily: '思源雅黑' 
-          }
-        },
       ],
     },
     {
-      label: '口琴',
+      label: '社区',
       key: '3',
-       children:[
-        {
-          label:'口琴介绍',
-          key:'8',
-          style:{
-            fontFamily: '思源雅黑' 
-          }
-        },
-        {
-          label:'名家介绍',
-          key:'9',
-          style:{
-            fontFamily: '思源雅黑' 
-          }
-        },
-        
-      ],
     },
     {
-      label: '星一',
-      key: 'xingyi',
-      children:[
-        {
-          label:'社团历史',
-          key:'4',
-          style:{
-            fontFamily: '思源雅黑' 
-          }
-        },
-        {
-          label:'主要成员',
-          key:'5',
-          style:{
-            fontFamily: '思源雅黑' 
-          }
-        },
-        {
-          label:'社团介绍',
-          key:'6',
-          style:{
-            fontFamily: '思源雅黑' 
-          }
-        },
-        {
-          label:'加入我们',
-          key:'7',
-          style:{
-            fontFamily: '思源雅黑' 
-          }
-        },
-      ],
-     
+      label: '主页',
+      key: '4',   
     },
   ];
 
@@ -129,7 +90,7 @@ const SystemInfo: FC<SystemInfoProps> = ({ children }) => {
         <Menu
           theme="light"
           mode="horizontal"
-          defaultSelectedKeys={['1']}
+          selectedKeys={[getSelectedKey()]}
           items={rightMenuItems}
           popupClassName="custom-submenu"  // 添加统一className
           style={{

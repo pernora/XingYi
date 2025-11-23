@@ -1,0 +1,219 @@
+// 全局样式重置
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.harmonica-bible-container {
+  min-height: 100vh;
+  background-color: #fafafa;
+
+  // 顶部标题栏
+  .bible-header {
+    background: linear-gradient(90deg, #1890ff 0%, #40a9ff 100%);
+    padding: 0 24px;
+    height: 64px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .header-title {
+      color: #fff;
+      margin: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+
+      // 适配小屏：按钮文字隐藏，只显示图标
+      @media (max-width: 576px) {
+        .ant-btn-text {
+          display: none;
+        }
+      }
+    }
+  }
+
+  // 左侧导航栏
+  .bible-sider {
+    background-color: #fff;
+    border-right: 1px solid #e8e8e8;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+
+    .sider-menu {
+      border-right: none;
+      padding-top: 20px;
+
+      .chapter-item {
+        height: 60px;
+        line-height: 60px;
+        font-size: 16px;
+        transition: all 0.3s;
+
+        &:hover {
+          background-color: #e6f7ff;
+        }
+
+        &.ant-menu-item-selected {
+          background-color: #e6f7ff;
+          color: #1890ff;
+          border-left: 3px solid #1890ff;
+        }
+      }
+    }
+  }
+
+  // 主内容区（删除锚点相关样式，优化内容布局）
+  .bible-content {
+    padding: 24px;
+    overflow: auto;
+    height: calc(100vh - 64px);
+
+    .content-inner {
+      //max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    // 章节内容容器
+    .chapter-content {
+      background: #fff;
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 32px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+      display: none;  // 默认隐藏，选中时显示
+
+      &.active {
+        display: block;
+        animation: fadeIn 0.5s ease;
+      }
+
+      .chapter-title {
+        margin-bottom: 16px;
+        color: #1890ff;
+        display: flex;
+        align-items: center;
+      }
+
+      // 折叠面板样式优化
+      .section-collapse {
+        margin-top: 16px;
+      }
+
+      .section-header {
+        margin: 0;
+        color: #333;
+        transition: color 0.3s;
+
+        &:hover {
+          color: #1890ff;
+        }
+      }
+
+      .section-panel {
+        border-bottom: 1px solid #f0f0f0;
+        margin-bottom: 8px;
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+
+      // 章节内容区
+      .section-content {
+        padding: 16px 0 8px 24px;
+        color: #666;
+        line-height: 1.8;
+
+        ul {
+          padding-left: 20px;
+          margin: 16px 0;
+        }
+
+        li {
+          margin-bottom: 8px;
+        }
+      }
+
+      // 练习曲操作区
+      .exercise-actions {
+        margin-top: 16px;
+        padding-top: 16px;
+        border-top: 1px dashed #e8e8e8;
+      }
+    }
+  }
+
+  // 自定义卡片样式（替代Antd Card）
+  .custom-card {
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    padding: 16px;
+    background: #fff;
+    transition: all 0.3s;
+    margin-top: 8px;
+
+    &:hover {
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      border-color: #e6f7ff;
+    }
+  }
+
+  // 回到顶部按钮
+  .back-to-top {
+    background: #fff !important;
+    border: 1px solid #e8e8e8;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    right: 30px;
+    bottom: 30px;
+
+    &:hover {
+      background: #f5f5f5 !important;
+    }
+  }
+}
+
+// 淡入动画
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// 响应式适配（优化小屏体验）
+@media (max-width: 768px) {
+  .harmonica-bible-container {
+    .bible-sider {
+      display: none;  // 小屏隐藏左侧导航
+    }
+
+    .bible-content {
+      padding: 16px;
+
+      .chapter-content {
+        padding: 16px;
+      }
+
+      .section-content {
+        padding-left: 0;  // 小屏减少左内边距
+      }
+    }
+  }
+}
